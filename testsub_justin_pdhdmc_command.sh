@@ -13,8 +13,8 @@ EOF
 
 WOB="np04"
 
-MCJOBS=1
-NEVTS=1
+MCJOBS=3
+NEVTS=2
 
 justin-test-jobscript --jobscript apr2025_generic_mcprod.jobscript \
   --env DUNESW_VERSION=v10_05_00d00 --env UTIL_TAR=$util_tar --monte-carlo ${MCJOBS} --env "NEVENTS=${NEVTS}" \

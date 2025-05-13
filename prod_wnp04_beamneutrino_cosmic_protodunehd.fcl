@@ -69,7 +69,7 @@ outputs:
   out1:
   {
     module_type: RootOutput
-    fileName:  "prod_beamneutrino_cosmics_protodunehd.root" #default file name, can override from command line with -o or --output
+    fileName:  "prod_protodunehd_beamneutrino_cosmics.root" #default file name, can override from command line with -o or --output
     dataTier: "generated"
     compressionLevel: 1
   }
