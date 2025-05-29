@@ -20,11 +20,19 @@ outputs:    @local::outputs_triggersim
 physics:  @local::physics_triggersim_simpleThr_simpleWin_simpleWin
 producers.tamakerTPC.nmodules: @local::nmodules_protodunehd
 
-producers.tamakerTPC.algconfig_plane0.window_length: 20000
-producers.tamakerTPC.algconfig_plane0.adc_threshold: 12000000
-producers.tamakerTPC.algconfig_plane1.window_length: 20000
-producers.tamakerTPC.algconfig_plane1.adc_threshold: 12000000
-producers.tamakerTPC.algconfig_plane2.window_length: 20000
-producers.tamakerTPC.algconfig_plane2.adc_threshold: 12000000
-producers.tamakerTPC.algconfig_plane3.window_length: 20000
-producers.tamakerTPC.algconfig_plane3.adc_threshold: 12000000
+ta_algconfig_bsmsimplewindow:
+{
+	window_length: 20000
+	adc_threshold: 12000000
+}
+
+# The broken APA 1 in PD-HD generates TPs on induction plane instead
+# Just activate TPs on all planes - useful long term
+# plane2 already set to 60 ADC threshold
+physics.producers.tpmakerTPC.tpalg.threshold_tpg_plane0: 60
+physics.producers.tpmakerTPC.tpalg.threshold_tpg_plane1: 60
+
+physics.producers.tamakerTPC.algconfig_plane0: @local::ta_algconfig_bsmsimplewindow
+physics.producers.tamakerTPC.algconfig_plane1: @local::ta_algconfig_bsmsimplewindow
+physics.producers.tamakerTPC.algconfig_plane2: @local::ta_algconfig_bsmsimplewindow
+physics.producers.tamakerTPC.algconfig_plane3: @local::ta_algconfig_bsmsimplewindow

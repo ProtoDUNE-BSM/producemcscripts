@@ -6,7 +6,9 @@ tar -cf beam_job_utils.tar \
   pdhd_w133_base_meta.json \
   pdhd_wnp04_spsneutrino_mc.yaml \
   pdhd_wnp04_spsneutrino_triggeronly_mc.yaml \
+  pdhd_wnp04_spsneutrino_genonly_mc.yaml \
   pdhd_w133_spsneutrino_mc.yaml \
+  pdhd_w133_spsneutrino_genonly_mc.yaml \
   prod_wnp04_beamneutrino_cosmic_protodunehd.fcl \
   prod_w133_beamneutrino_cosmic_protodunehd.fcl \
   genie_protodunehd.fcl \
