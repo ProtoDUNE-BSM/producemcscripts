@@ -80,3 +80,4 @@ outputs:
 physics.producers.generator.FluxFiles: ["gsimple_sps_pdhd_allflav_allhad_wnp04_total_*.root"]
 
 physics.producers.generator.GenFlavors: [14, 12, -14, -12]
+physics.producers.generator.FiducialCut: "mbox:-350.,0.,0.,350.,607.,460."

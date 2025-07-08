@@ -4,6 +4,7 @@
 #or if only one can be in the produce list
 physics.producers.wclsdatahd: @local::protodunehd_sp  #Signal processing
 physics.producers.wclsdatahd.wcls_main.structs.elecGain: 7.8 # mV/fC 
+physics.producers.pandora: @local::protodunehd_neutrino_pandora
 
 physics.reco: [
   wclsdatahd,
@@ -50,5 +51,30 @@ source:
 outputs.out1.outputCommands: [ "keep *", "drop recob::Wire*_*_wiener_*"]
 process_name: pdhdrecostage2
 physics.filters.nhitsfilter.Verbose: true
+
+physics.producers.gaushit.CalDataModuleLabel: "wclsdatahd:gauss"
+physics.producers.pandora.HitFinderModuleLabel:             "hitpdune"
+physics.producers.pandora.GeantModuleLabel:                 "tpcrawdecoder:simpleSC"
+physics.producers.pandoraWriter.GeantModuleLabel:           "tpcrawdecoder:simpleSC"
+physics.producers.pandoraWriter.HitFinderModuleLabel:       "hitpdune"
+physics.producers.pandoraWriter.GeneratorModuleLabel:       "generator"
+physics.producers.pandoraTrack.PFParticleLabel:             "pandora"
+physics.producers.pandoraShower.PFParticleLabel:            "pandora"
+physics.producers.pandorapid.CalorimetryModuleLabel:        "pandoracalo"
+physics.producers.pandorapid.TrackModuleLabel:              "pandoraTrack"
+
+##Optical detector configuration
+physics.producers.opdec.InputModule: "opdigi"
 physics.producers.opdec.InstanceName: ""
-physics.producers.ophitspe.InputModuledigi: "opdigi"
+physics.producers.ophitspe.InputModuledigi: "opdigi" ##TODO check this
+physics.producers.opflash.InputModule: "ophitspe"
+physics.producers.opslicer.OpHitModuleLabel: "ophitspe"
+
+
+
+#Forcing Pandora to create either all tracks or all showers on each PFParticle object
+physics.producers.pandora2Track.PFParticleLabel:             "pandora"
+physics.producers.pandora2Track.UseAllParticles:             true
+####The above line forces pandora to fit a track to all PFParticles
+physics.producers.pandora2Shower.PFParticleLabel:            "pandora"
+physics.producers.pandora2Shower.UseAllParticles:            true

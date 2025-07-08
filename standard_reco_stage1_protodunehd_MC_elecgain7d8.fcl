@@ -5,6 +5,7 @@
 physics.producers.wclsdatahd: @erase
 physics.producers.wclsdatahdfilter: @local::protodunehd_nf
 physics.producers.wclsdatahdfilter.wcls_main.structs.elecGain: 7.8 # mV/fC 
+physics.producers.pandora: @local::protodunehd_neutrino_pandora
 
 physics.reco: [
   wclsdatahdfilter  #new to output raw digits from Wirecell
