@@ -29,6 +29,8 @@ ta_algconfig_bsmsimplewindow:
 # The broken APA 1 in PD-HD generates TPs on induction plane instead
 # Just activate TPs on all planes - useful long term
 # plane2 already set to 60 ADC threshold
+#physics.producers.tpmakerTPC.tpalg.threshold_tpg_plane0: -1
+#physics.producers.tpmakerTPC.tpalg.threshold_tpg_plane1: -1
 physics.producers.tpmakerTPC.tpalg.threshold_tpg_plane0: 60
 physics.producers.tpmakerTPC.tpalg.threshold_tpg_plane1: 60
 

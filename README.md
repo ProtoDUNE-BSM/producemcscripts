@@ -7,13 +7,10 @@ First thing is needed is to get the correct certificates and generate a tarball 
 
 ```
 kinit -f ${USER}
-kx509
-voms-proxy-init --noregen -rfc -voms dune:/dune/Role=Analysis
-(certificate system changing soon though)
-
 setup justin
 justin time
 htgettoken -a htvaultprod.fnal.gov -i dune
+(or use justin get-token)
 
 source tarball.sh
 ```
@@ -22,7 +19,7 @@ Running `tarball.sh` loads all of the scripts into a tarball with the env variab
 
 To then process data use `standardsub_justin_pdhdmc_command.sh`. Edit the `WOB` variable in this bash script to change the wobbling configuration code (`np04`, `133`, or `000`). I could make these options command-line editable if it is useful.
 
-N.B. fluxes for wobbling confuration `000` exist but configuration files not included yet as no PD-HD with `000` wobbling configuration exists, so MC productions are not yet necessary.
+N.B. fluxes for wobbling confuration `000` exist but configuration files not included yet as no PD-HD data with `000` wobbling configuration exists, so MC productions are not yet necessary.
 
 ```
 source standardsub_justin_pdhdmc_command.sh
@@ -39,7 +36,9 @@ Likewise, the corresponding `.json` files for the metadata are
 pdhd_wnp04_base_meta.json
 pdhd_w133_base_meta.json
 ```
-The variable `MCJOBS` determines how many MC jobs will be a part of the workflow. The variable `NEVTS` is how many events there will be per MC job. Multiply `MCJOBS` and `NEVTS` to get the total MC events to be simulated in workflow. A typical number of events per job is 10.
+There are other `.yaml` files available such as `pdhd_wnp04_spsneutrino_triggeronly_mc.yaml`, but this is for a test production when the user only wants to simulate up to the trigger simulation. This is not to be used for full production - stick to `pdhd_wnp04_spsneutrino_mc.yaml` and `pdhd_w133_spsneutrino_mc.yaml`.
+
+The variable `MCJOBS` determines how many MC jobs will be a part of the workflow. The variable `NEVTS` is how many events there will be per MC job. Multiply `MCJOBS` and `NEVTS` to get the total MC events to be simulated in workflow. A typical number of events per job is 10. A 10 event PDHD reco file typically has a size of 2 GB.
 
 The justin workflow should also have the environment variables `--env MCJob=1` and `--env pipyaml=1` set. 
 
