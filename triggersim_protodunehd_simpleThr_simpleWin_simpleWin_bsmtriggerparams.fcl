@@ -17,6 +17,10 @@ source:     @local::source_triggersim
 
 outputs:    @local::outputs_triggersim
 
+outputs.out1.fileName: "%ifb_trigger.root"
+
+outputs.out1.outputCommands: [ "keep *", "drop raw::RawDigit*_*_*_*" ]
+
 physics:  @local::physics_triggersim_simpleThr_simpleWin_simpleWin
 producers.tamakerTPC.nmodules: @local::nmodules_protodunehd
 
