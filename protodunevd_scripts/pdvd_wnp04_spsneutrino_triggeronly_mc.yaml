@@ -1,0 +1,34 @@
+time_last: True
+pass_name_through_stages: True
+art_out_base: prod_protodunevd_beamneutrino
+timestamp_outname: True
+justin_stage_outname: True
+justin_jobid_outname: True
+
+
+job_stages:
+  gen:
+    fcl: prod_wnp04_beamneutrino_cosmic_protodunevd.fcl 
+    nevents: 10
+    art_out: True
+    tfile_out: False
+    input_from: "job" ##Todo -- make sure input is passed through
+  g4:
+    fcl: standard_g4_protodunevd_nophoton.fcl
+    nevents: -1
+    art_out: True
+    tfile_out: False
+    input_from: "gen"
+  detsim:
+    fcl: standard_detsim_protodunevd_elecgain7d8_nophoton.fcl
+    nevents: -1
+    art_out: True
+    tfile_out: False
+    input_from: "g4"
+  trigger:
+    fcl: triggersim_protodunevd_simpleThr_simpleWin_simpleWin_bsmtriggerparams.fcl
+    nevents: -1
+    art_out: True
+    make_art_metadata: True
+    tfile_out: False
+    input_from: "detsim"

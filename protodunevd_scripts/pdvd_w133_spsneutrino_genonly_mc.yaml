@@ -1,0 +1,16 @@
+time_last: True
+pass_name_through_stages: True
+art_out_base: prod_protodunevd_beamneutrino
+timestamp_outname: True
+justin_stage_outname: True
+justin_jobid_outname: True
+
+
+job_stages:
+  gen:
+    fcl: prod_w133_beamneutrino_cosmic_protodunevd.fcl 
+    nevents: 10
+    art_out: True
+    make_art_metadata: True
+    tfile_out: False
+    input_from: "job" ##Todo -- make sure input is passed through

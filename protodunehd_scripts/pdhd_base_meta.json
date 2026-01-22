@@ -2,9 +2,9 @@
   "metadata": {
     "core.group": "dune",
     "core.run_type": "hd-protodune",
-    "dune.campaign": "pdhd_mc_bsm_reco2_2025a",
+    "dune.campaign": "pdhd_mc_bsm_reco2_2026a",
     "core.data_tier": "reco2",
-    "core.application.version": "v10_05_00d00",
+    "core.application.version": "v10_12_02d00",
     "core.application.family": "art",
     "dune.config_file": "prod_wnp04_beamneutrino_cosmic_protodunehd.fcl",
     "dune.wobconf": "np04",

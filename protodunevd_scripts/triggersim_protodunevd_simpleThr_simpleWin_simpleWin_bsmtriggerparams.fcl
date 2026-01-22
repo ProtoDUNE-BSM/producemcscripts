@@ -1,0 +1,42 @@
+# triggersim_protodunevd_simpleThr_simpleWin_example.fcl
+
+#include "triggersim.fcl"
+
+#include "services_protodunevd.fcl"
+#include "services_refactored_pdune.fcl"
+
+# this is not a prolog, it has to go just before the actual config
+#include "protodune_tools_dune.fcl"
+
+process_name: TriggersimProtoduneVDSimpleThrSimpleWinSimpleWin
+
+services:{
+    @table::services_triggersim
+    @table::protodunevd_refactored_simulation_services
+}
+
+source:     @local::source_triggersim
+
+outputs:    @local::outputs_triggersim
+
+physics:  @local::physics_triggersim_simpleThr_simpleWin_simpleWin
+producers.tamakerTPC.nmodules: @local::nmodules_protodunehd # Does VD also have 4 modules?
+
+ta_algconfig_bsmsimplewindow:
+{
+	window_length: 20000
+	adc_threshold: 8000000
+}
+
+# The broken APA 1 in PD-HD generates TPs on induction plane instead
+# Just activate TPs on all planes - useful long term
+# plane2 already set to 60 ADC threshold
+#physics.producers.tpmakerTPC.tpalg.threshold_tpg_plane0: -1
+#physics.producers.tpmakerTPC.tpalg.threshold_tpg_plane1: -1
+physics.producers.tpmakerTPC.tpalg.threshold_tpg_plane0: 60
+physics.producers.tpmakerTPC.tpalg.threshold_tpg_plane1: 60
+
+physics.producers.tamakerTPC.algconfig_plane0: @local::ta_algconfig_bsmsimplewindow
+physics.producers.tamakerTPC.algconfig_plane1: @local::ta_algconfig_bsmsimplewindow
+physics.producers.tamakerTPC.algconfig_plane2: @local::ta_algconfig_bsmsimplewindow
+physics.producers.tamakerTPC.algconfig_plane3: @local::ta_algconfig_bsmsimplewindow

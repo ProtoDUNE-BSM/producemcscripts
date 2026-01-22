@@ -1,13 +1,13 @@
 {
   "metadata": {
     "core.group": "dune",
-    "core.run_type": "hd-protodune",
-    "dune.campaign": "pdhd_mc_bsm_reco2_2025a",
+    "core.run_type": "vd-protodune",
+    "dune.campaign": "pdvd_mc_bsm_reco2_2026a",
     "core.data_tier": "reco2",
-    "core.application.version": "v10_05_00d00",
+    "core.application.version": "v10_12_02d00",
     "core.application.family": "art",
-    "dune.config_file": "prod_wnp04_beamneutrino_cosmic_protodunehd.fcl",
-    "dune.wobconf": "np04",
+    "dune.config_file": "prod_w133_beamneutrino_cosmic_protodunevd.fcl",
+    "dune.wobconf": "133",
     "core.data_stream": "out1",
     "dune.requestid": "ritmXXXX",
     "core.file_type": "data",

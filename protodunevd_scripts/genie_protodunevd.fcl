@@ -1,0 +1,19 @@
+#include "genie_dune.fcl"
+
+BEGIN_PROLOG
+
+protodunevd_genie: @local::dunefd_genie
+protodunevd_genie.FluxType: "simple_flux"
+protodunevd_genie.FluxSearchPaths: "/exp/dune/data/users/chasnip/ProtoDUNESimulation/VDProtoDUNEGSimpleNuFluxes_Final_Jan2026"
+#protodunevd_genie.FluxSearchPaths: "/pnfs/dune/persistent/users/chasnip/ProtoDUNEBSM/VDProtoDUNEGSimpleNuFluxes_Final_Jan2026"
+protodunevd_genie.FluxFiles: ["gsimple_sps_pdvd_allflav_allhad_wnp04_total_*.root"]
+#protodunevd_genie.FluxCopyMethod: "IFDH"
+protodunevd_genie.FluxCopyMethod: "DIRECT"
+protodunevd_genie.TopVolume: "volCryostat"
+protodunevd_genie.FiducialCut: "mbox:-341.5,-336.,0.,341.5.,336.,300."
+protodunevd_genie.EventsPerSpill: 1
+protodunevd_genie.POTPerSpill: 0
+protodunevd_genie.GenFlavors: [14, 12, -14, -12] #pdg codes of flux generator neutrino flavors
+#protodunevd_genie.FluxUpstreamZ: -200  # start neutrinos at z=-200 independent of flux window positioning
+
+END_PROLOG

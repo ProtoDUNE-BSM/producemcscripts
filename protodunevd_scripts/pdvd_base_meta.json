@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "core.group": "dune",
+    "core.run_type": "vd-protodune",
+    "dune.campaign": "pdvd_mc_bsm_reco2_2026a",
+    "core.data_tier": "reco2",
+    "core.application.version": "v10_12_02d00",
+    "core.application.family": "art",
+    "dune.config_file": "prod_wnp04_beamneutrino_cosmic_protodunevd.fcl",
+    "dune.wobconf": "np04",
+    "core.data_stream": "out1",
+    "dune.requestid": "ritmXXXX",
+    "core.file_type": "data",
+    "core.file_format": "artroot"
+  }
+}

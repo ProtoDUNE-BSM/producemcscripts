@@ -1,12 +1,13 @@
 #!/bin/bash
 
-tar -cf beam_job_utils.tar \
+tar -cf beam_job_utils_pdhd.tar \
   beam_job_utils.py \
   pdhd_wnp04_base_meta.json \
   pdhd_w133_base_meta.json \
   pdhd_cosmic_base_meta.json \
   pdhd_wnp04_spsneutrino_mc.yaml \
   pdhd_wnp04_spsneutrino_triggeronly_mc.yaml \
+  pdhd_w133_spsneutrino_triggeronly_mc.yaml \
   pdhd_w133_spsneutrino_mc.yaml \
   pdhd_w133_spsneutrino_genonly_mc.yaml \
   pdhd_cosmic_rad_trigger_mc.yaml \
@@ -20,4 +21,4 @@ tar -cf beam_job_utils.tar \
   standard_reco_stage1_protodunehd_MC_elecgain7d8.fcl \
   standard_reco_stage2_protodunehd_MC_nophoton_elecgain7d8.fcl  
 
-util_tar=`justin-cvmfs-upload beam_job_utils.tar`
+util_tar_pdhd=`justin-cvmfs-upload beam_job_utils_pdhd.tar`

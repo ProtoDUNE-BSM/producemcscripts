@@ -12,10 +12,14 @@ htgettoken -a htvaultprod.fnal.gov -i dune
 EOF
 
 WOB="133"
+DET="pdvd"
 
 MCJOBS=1
-NEVTS=5000
+NEVTS=1
+
+#yaml=${DET}_w${WOB}_spsneutrino_mc.yaml
+yaml=${DET}_w${WOB}_spsneutrino_triggeronly_mc.yaml
 
 justin-test-jobscript --jobscript apr2025_generic_mcprod.jobscript \
-  --env DUNESW_VERSION=v10_05_00d00 --env UTIL_TAR=$util_tar --monte-carlo ${MCJOBS} --env "NEVENTS=${NEVTS}" \
-  --env pipyaml=1 --env YAMLFILE=pdhd_w${WOB}_spsneutrino_genonly_mc.yaml --env JSONFILE=pdhd_w${WOB}_base_meta.json --env MCJob=1
+  --env DUNESW_VERSION=v10_12_02d00 --env UTIL_TAR=$util_tar_pdvd --monte-carlo ${MCJOBS} --env "NEVENTS=${NEVTS}" \
+  --env pipyaml=1 --env YAMLFILE=${yaml} --env JSONFILE=${DET}_w${WOB}_base_meta.json --env MCJob=1

@@ -1,0 +1,15 @@
+{
+  "metadata": {
+    "core.group": "dune",
+    "core.run_type": "hd-protodune",
+    "dune.campaign": "pdhd_mc_cosmic_trigger_2026a",
+    "core.data_tier": "trigger",
+    "core.application.version": "v10_12_02d00",
+    "core.application.family": "art",
+    "dune.config_file": "prod_cosmic_rad_protodunehd.fcl",
+    "core.data_stream": "out1",
+    "dune.requestid": "ritmXXXX",
+    "core.file_type": "data",
+    "core.file_format": "artroot"
+  }
+}

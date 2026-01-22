@@ -1,0 +1,69 @@
+#include "services_protodunevd.fcl"
+#include "services_refactored_pdune.fcl"
+#include "LArG4_dune.fcl"
+#include "IonAndScint_dune.fcl"
+#include "PDFastSim_dune.fcl"
+
+process_name: G4
+
+services:
+{
+  TFileService: { fileName: "g4_protodunevd_hist.root" }
+  TimeTracker:       {}
+  MemoryTracker:     {} # default is one
+  RandomNumberGenerator: {} #ART native random number generator
+  message:      @local::standard_info
+
+  @table::protodunevd_larg4_services
+  @table::protodunevd_refactored_simulation_services
+
+  NuRandomService:       @local::dune_prod_seedservice
+}
+
+services.DAPHNEChannelMapService.FileName: "PDVD_PDS_Mapping_v07082025.json"
+services.WireReadout.PDMapTool.MappingFile: "PDVD_PDS_Mapping_v07082025.json"
+
+source:
+{
+  module_type: RootInput
+  maxEvents:  30000
+  fileNames: ["gen_protodunevd.root"]
+}
+
+physics:
+{
+
+  producers:
+  {
+
+    #retain largeant name for compatibility
+    largeant:     @local::protodune_larg4
+    IonAndScint:  @local::protodunevd_ionandscint
+    rns: {module_type: "RandomNumberSaver"}
+  }
+
+  analyzers:
+  {
+
+  }
+
+  simulate:      [  rns, largeant, IonAndScint ]
+
+  stream1:       [ out1 ]
+
+  trigger_paths: [  simulate ] 
+  end_paths:     [  stream1  ]  
+}
+
+outputs:
+{
+  out1:
+  {
+    module_type: RootOutput
+    fileName:    "%ifb_g4.root"
+    dataTier:    "simulated"
+    #outputCommands: [ "keep *" ]
+    outputCommands: [ "keep *", "drop sim::SimEnergyDeposits_largeant_*_G4*"]
+    compressionLevel: 1 #zlib argument (0-9) 
+  }
+}
