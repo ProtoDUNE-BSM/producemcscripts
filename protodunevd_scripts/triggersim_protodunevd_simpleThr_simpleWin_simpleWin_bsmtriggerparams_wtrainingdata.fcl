@@ -1,33 +1,46 @@
-# triggersim_protodunehd_simpleThr_simpleWin_example.fcl
+# triggersim_protodunevd_simpleThr_simpleWin_example.fcl
 
 #include "triggersim.fcl"
 
+#include "services_protodunevd.fcl"
 #include "services_refactored_pdune.fcl"
+
 # this is not a prolog, it has to go just before the actual config
 #include "protodune_tools_dune.fcl"
 
-process_name: TriggersimProtoduneHDSimpleThrSimpleWinSimpleWin
+process_name: TriggersimProtoduneVDSimpleThrSimpleWinSimpleWin
 
 services:{
     @table::services_triggersim
-    @table::protodunehd_reco_services
+    @table::protodunevd_refactored_simulation_services
 }
 
 source:     @local::source_triggersim
 
 outputs:    @local::outputs_triggersim
-
-outputs.out1.fileName: "%ifb_pdvd_trigger_%tc.root"
-
-outputs.out1.outputCommands: [ "keep *", "drop raw::RawDigit*_*_*_*" ]
+outputs.out1.fileName: "%ifb_trigger.root"
 
 physics:  @local::physics_triggersim_simpleThr_simpleWin_simpleWin
-producers.tamakerTPC.nmodules: @local::nmodules_protodunehd
+producers.tamakerTPC.nmodules: @local::nmodules_protodunehd # Does VD also have 4 modules?
+
+
+physics.analyzers:
+{
+  GeneralProtoDUNETriggerTrainingDataMaker:
+  {
+    module_type: GeneralProtoDUNETriggerTrainingDataMaker
+    tp_tag: "tpmakerTPC"
+    ta_tag: "tamakerTPC"
+    tc_tag: "tcmakerTPC"
+    verbosity: 1
+    MCTruthLabel: "generator"
+  }
+}
 
 ta_algconfig_bsmsimplewindow:
 {
 	window_length: 20000
-	adc_threshold: 12000000
+	adc_threshold: 8000000
 }
 
 # The broken APA 1 in PD-HD generates TPs on induction plane instead
@@ -42,3 +55,8 @@ physics.producers.tamakerTPC.algconfig_plane0: @local::ta_algconfig_bsmsimplewin
 physics.producers.tamakerTPC.algconfig_plane1: @local::ta_algconfig_bsmsimplewindow
 physics.producers.tamakerTPC.algconfig_plane2: @local::ta_algconfig_bsmsimplewindow
 physics.producers.tamakerTPC.algconfig_plane3: @local::ta_algconfig_bsmsimplewindow
+
+# Comment off if you do not want to run the analyzer creating training data
+physics.ana:       [ GeneralProtoDUNETriggerTrainingDataMaker ]
+physics.end_paths: [ ana, stream1 ]
+services.TFileService.fileName: "%ifb_training_data.root"

@@ -81,5 +81,5 @@ outputs:
 
 # Set neutrino GENIE generator parameters
 physics.producers.generator.FluxFiles: ["gsimple_sps_pdvd_allflav_allhad_w133_total_*.root"]
-physics.producers.generator.FluxSearchPaths: "/pnfs/dune/persistent/users/chasnip/ProtoDUNEBSM/VDProtoDUNEGSimpleNuFluxes_Final_Jan2026"
-physics.producers.generator.FluxCopyMethod: "IFDH"
+#physics.producers.generator.FluxSearchPaths: "/pnfs/dune/persistent/users/chasnip/ProtoDUNEBSM/VDProtoDUNEGSimpleNuFluxes_Final_Jan2026"
+#physics.producers.generator.FluxCopyMethod: "IFDH"

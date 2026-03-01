@@ -43,8 +43,11 @@ if [ -n "$DUNESW_TAR" ]; then
     exit 0
   fi
  
-  export PRODUCTS=$DUNESW_TAR:$PRODUCTS 
+  #export PRODUCTS=$DUNESW_TAR:$PRODUCTS 
   echo "Set dunesw to $DUNESW_TAR"
+  #source $DUNESW_TAR/setup_grid
+  source $DUNESW_TAR/localProducts_larsoft_v10_12_02d00_e26_prof/setup_grid
+  mrbslp
 fi
 
 if [ -n "$WIRECELL_TAR" ]; then
@@ -77,8 +80,8 @@ echo "WIRECELL loc:"
 ups active | grep wirecell
  
  
-echo "printing env"
-env
+#echo "printing env"
+#env
 echo "DUNE specific env vars"
 env | grep DUNE
 

@@ -11,6 +11,7 @@ tar -cf beam_job_utils_pdvd.tar \
   pdvd_w133_spsneutrino_mc.yaml \
   pdvd_w133_spsneutrino_genonly_mc.yaml \
   pdvd_cosmic_rad_trigger_mc.yaml \
+  pdvd_wnp04_spsneutrino_triggeronly_training_data.yaml \
   prod_wnp04_beamneutrino_cosmic_protodunevd.fcl \
   prod_w133_beamneutrino_cosmic_protodunevd.fcl \
   prod_cosmic_rad_protodunevd.fcl \
