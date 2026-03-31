@@ -29,16 +29,21 @@ source tarball_vd.sh
 ```
 This creates the env variable `$util_tar_pdvd`, which is the area on cvmfs that our tarball of PD-VD configuration files have been loaded to.
 
-To then process data use `standardsub_justin_pdhdmc_command.sh`. Edit the `WOB` variable in this bash script to change the wobbling configuration code (`np04`, `133`, or `000`). Edit `DET` to either `pdhd` or `pdvd`. in the justin command line edit `UTIL_TAR` to be either `$util_tar_pdhd` or `$util_tar_pdvd`. I could make all these options command-line editable if it is useful.
+To then process data use `standardsub_justin_pdhdmc_command.sh` and `standardsub_justin_pdvdmc_command.sh` for PD-HD and PD-VD productions respectively. Edit the `WOB` variable in this bash script to change the wobbling configuration code (`np04`, `133`, or `000`). The `DET` will be either `pdhd` or `pdvd` depending whether the bash script is `standardsub_justin_pdhdmc_command.sh` or `standardsub_justin_pdvdmc_command.sh` respectively. Likewise the `UTIL_TAR` variable will be either `$util_tar_pdhd` or `$util_tar_pdvd`. I could make all these options command-line editable if it is useful.
 
 N.B. fluxes for wobbling confuration `000` exist but configuration files not included yet as no PD-HD data with `000` wobbling configuration exists, so MC productions are not yet necessary.
 
 ```
 source standardsub_justin_pdhdmc_command.sh
 ```
-Will submit a workflow for simulating neutrinos with the `WOB` and `DET` code of choice.
+Will submit a workflow for simulating neutrinos with the `WOB` of choice for a `DET` variable set to `pdhd`.
 
-Changing the `WOB` code changes the `.yaml` configuration file and `.json` file for the metadata. The `.yaml` file for a calls the correct `.fcl` file, which loads the correct flux files for that magnet configuration. The two `.yaml` files for `np04` and `133` are 
+```
+source standardsub_justin_pdhdvc_command.sh
+```
+Will submit a workflow for simulating neutrinos with the `WOB` of choice for a `DET` variable set to `pdvd`.
+
+Changing the `WOB` code changes the `.yaml` configuration file and `.json` file for the metadata. The `.yaml` file for a calls the correct `.fcl` file, which loads the correct flux files for that magnet configuration. The two standard `.yaml` files for PD-HD productions up to Pandora reconstruction and wobbling configurations `np04` and `133` are 
 ```
 pdhd_wnp04_spsneutrino_mc.yaml
 pdhd_w133_spsneutrino_mc.yaml
@@ -48,6 +53,8 @@ Likewise, the corresponding `.json` files for the metadata are
 pdhd_wnp04_base_meta.json
 pdhd_w133_base_meta.json
 ```
+For standard full productions, these configurations files should be used. There are other `.yaml` files available for specific use case, such as MC prductions for trigger studies.
+
 The equivelent scripts exist for for PD-VD, but are labelled with `pdvd` at the start of the file name.
 
 There are other `.yaml` files available such as `pdhd_wnp04_spsneutrino_triggeronly_mc.yaml`, but this is for a test production when the user only wants to simulate up to the trigger simulation. This is not to be used for full production - stick to `pdhd_wnp04_spsneutrino_mc.yaml` and `pdhd_w133_spsneutrino_mc.yaml`.

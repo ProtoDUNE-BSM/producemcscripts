@@ -62,4 +62,4 @@ outputs:
 }
 
 physics.producers.tpcrawdecoder.wcls_main.structs.elecGain:   7.8 # mV/fC 
-#physics.producers.tpcrawdecoder.DecoderToolParams: @local::PDVDDataInterfaceWIBEthDefaults 
+physics.producers.tpcrawdecoder.DecoderToolParams: @local::PDVDDataInterfaceWIBEthDefaults 

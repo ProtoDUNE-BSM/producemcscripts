@@ -12,9 +12,9 @@ mkdir tar_state; cd tar_state
 cp -r ${LOCALPRODDIR} ./
 mkdir ./srcs
 
-tar -cf beam_job_localprod_pdvd.tar ./*
+tar -cf beam_job_localprod_pdhd.tar ./*
 
-localprod_tar_pdvd=`justin-cvmfs-upload beam_job_localprod_pdvd.tar`
+localprod_tar_pdhd=`justin-cvmfs-upload beam_job_localprod_pdhd.tar`
 
 cd ..
 rm -rf tar_state

@@ -17,9 +17,10 @@ source:     @local::source_triggersim
 
 outputs:    @local::outputs_triggersim
 
-outputs.out1.fileName: "%ifb_pdvd_trigger_%tc.root"
+outputs.out1.fileName: "%ifb_pdhd_trigger_%tc.root"
 
-outputs.out1.outputCommands: [ "keep *", "drop raw::RawDigit*_*_*_*" ]
+#outputs.out1.outputCommands: [ "keep *", "drop raw::RawDigit*_*_*_*" ]
+outputs.out1.outputCommands: [ "keep *" ]
 
 physics:  @local::physics_triggersim_simpleThr_simpleWin_simpleWin
 producers.tamakerTPC.nmodules: @local::nmodules_protodunehd

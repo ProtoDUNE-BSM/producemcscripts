@@ -46,7 +46,7 @@ if [ -n "$DUNESW_TAR" ]; then
   #export PRODUCTS=$DUNESW_TAR:$PRODUCTS 
   echo "Set dunesw to $DUNESW_TAR"
   #source $DUNESW_TAR/setup_grid
-  source $DUNESW_TAR/localProducts_larsoft_v10_12_02d00_e26_prof/setup_grid
+  source $DUNESW_TAR/localProducts_larsoft_v10_17_02_e26_prof/setup_grid
   mrbslp
 fi
 
