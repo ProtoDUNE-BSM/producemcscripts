@@ -6,7 +6,6 @@ We have a yaml and fcl file for each type of T2 wobbling configuration available
 First thing is needed is to get the correct certificates and generate a tarball to be uploaded with the job.
 
 ```
-kinit -f ${USER}
 setup justin
 justin time
 htgettoken -a htvaultprod.fnal.gov -i dune

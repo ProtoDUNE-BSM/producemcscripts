@@ -47,7 +47,6 @@ physics:
 
   #define the producer and filter modules for this path, order matters, 
   simulate: [ generator, cosmicgenerator, ar39, ar42, kr85, k42fromar42 ]
-  #simulate: [ generator ]
 
   #define the output stream, there could be more than one if using filters 
   stream1:  [ out1 ]
@@ -78,7 +77,6 @@ outputs:
 
 # Set neutrino GENIE generator parameters
 physics.producers.generator.FluxFiles: ["gsimple_sps_pdhd_allflav_allhad_w133_total_*.root"]
-#physics.producers.generator.FluxSearchPaths: "/pnfs/dune/persistent/users/chasnip/ProtoDUNEBSM/NuFluxWeightedGSimpleFiles_v2"
 physics.producers.generator.FluxSearchPaths: "/pnfs/dune/persistent/users/chasnip/ProtoDUNEBSM/HDProtoDUNEGSimpleNuFluxes_Final_Jan2026"
 physics.producers.generator.FiducialCut: "mbox:-350.,0.,0.,350.,607.,460."
 physics.producers.generator.FluxUpstreamZ: -100 

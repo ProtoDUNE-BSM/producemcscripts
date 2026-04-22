@@ -76,9 +76,7 @@ outputs:
 }
 
 # Set neutrino GENIE generator parameters
-#physics.producers.generator.FluxFiles: ["gsimple_sps_pdhd_allflav_allhad_wnp04_total_*.root"]
 physics.producers.generator.FluxFiles: ["gsimple_sps_pdhd_allflav_allhad_wnp04_total_*.root"]
-#physics.producers.generator.FluxSearchPaths: "/pnfs/dune/persistent/users/chasnip/ProtoDUNEBSM/NuFluxWeightedGSimpleFiles_v2"
 physics.producers.generator.FluxSearchPaths: "/pnfs/dune/persistent/users/chasnip/ProtoDUNEBSM/HDProtoDUNEGSimpleNuFluxes_Final_Jan2026"
 physics.producers.generator.FiducialCut: "mbox:-350.,0.,0.,350.,607.,460."
 physics.producers.generator.FluxUpstreamZ: -100 
